@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      * {
+        margin: 5px;
+        padding: 0;
+      }
+      .container {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      }
+      .container .content {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        
+        transition: 1s;
+      }
+      .img {
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      .img:hover {
+        transform: translate(0, -10px);
+      }
+      img:hover {
+       
+        transform: scale(1.5);
+      }
+      i {
+        color: yellow;
+      }
+      p {
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <p>TRENDING PRODUCTS</p>
+      </div>
+      <div class="content">
+        <div class="img">
+          <div class="img"><img src="/buoi2/img/product_1.jpg" alt="anh1" /></div>
+          <p>fosil</p>
+          <p>asdasdasdasd</p>
+          <p>$400-$500</p>
+          <p>
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+            ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+            ><i class="fa-solid fa-star"></i>(1 view)
+          </p>
+        </div>
+        <div class="img">
+          <div class="img"><img src="/buoi2/img/product_2.jpg" alt="anh2" /></div>
+          <p>fosil</p>
+          <p>asdasdasdasd</p>
+          <p>$400-$500</p>
+          <p>
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+            ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+            ><i class="fa-solid fa-star"></i>(1 view)
+          </p>
+        </div>
+        <div class="img">
+          <div class="img"><img src="/buoi2/img/product_3.jpg" alt="anh3" /></div>
+          <p>fosil</p>
+          <p>asdasdasdasd</p>
+          <p>$400-$500</p>
+          <p>
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+            ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+            ><i class="fa-solid fa-star"></i>(1 view)
+          </p>
+        </div>
+        <div class="img">
+          <div class="img"><img src="/buoi2/img/product_4.jpg" alt="anh4" /></div>
+          <p>fosil</p>
+          <p>asdasdasdasd</p>
+          <p>$400-$500</p>
+          <p>
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+            ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+            ><i class="fa-solid fa-star"></i>(1 view)
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
