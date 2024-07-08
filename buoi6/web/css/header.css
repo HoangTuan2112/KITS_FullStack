@@ -1,0 +1,45 @@
+
+header{
+    background-color: var(--bgHeader);
+    height: 30%;
+    max-width: 100%;
+}
+.container{
+    width: 100%;
+}
+.hder .row{
+    /* flex-direction: row; */
+    /* margin: 20px; */
+    width: 100%;
+    height: 100%;
+}
+.container .row {
+    display: flex ;
+    /* border: 1px solid red; */
+    flex-direction: row;
+    /* position: relative; */
+    
+}
+.container .row nav ul li a{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: flex-end; */
+    padding-left: 40px;
+    font-size: 20px;
+    justify-content: flex-end;
+    color: #fff ;
+    justify-content: flex-end;
+}
+.container .row .logo{
+    position: relative;
+}
+.container .row .logo img{
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+header a:hover{
+    color:  green !important;
+    opacity: 1;
+} 

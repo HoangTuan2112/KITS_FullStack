@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .icon{
+            height: 20px;
+            width: 113px;
+            background-image: url('./img/listIcon.png');
+            background-position: 552px 89px;
+        }
+        .icon2{
+            height: 41px;
+            width: 46px;
+            background-image: url('./img/listIcon.png');
+
+            background-position: 334px 160px;
+        }
+        .animation{
+            height: 100px;
+            width: 100px;
+            background-color: green;
+            animation: animation 1s linear infinite alternate;
+            position: relative;
+        }
+
+        .animationW3s{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            animation: animationW3s 4s infinite alternate-reverse ;
+            position: relative;
+        }
+        @keyframes animation{
+            0%{
+                transform: translateY(0);
+            }
+            50%{
+                transform: translateY(100px);
+                background-color: pink;
+
+            }
+            100%{
+                transform: translateY(0);
+                background-color: red;
+
+            }
+        }
+        @keyframes animationW3s{
+            0%{
+                background-color: red;
+                left: 0px;
+                top:0px;
+            }
+            25%{
+                background-color: yellow;
+                left: 200px;
+                top:0px;
+
+            }
+            50%{
+                transform: translateY(0);
+                background-color: blue;
+                left: 200px;
+                top:200px;
+
+            }
+            75%{
+                background-color: green;
+                left: 0px;
+                top:200px;
+
+            }
+            100%{
+                background-color: red;
+                left: 0px;
+                top:0px;
+
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="icon">
+
+    </div>
+    <div class="icon2"></div>  
+    <div class="animation">
+
+    </div>
+    <div class="animationW3s">
+
+    </div>
+    <div class="road">
+        
+    </div>
+</body>
+</html>
