@@ -1,9 +1,9 @@
 
 footer{
     background-color: var(--bgFooter);
-    /* height: 30vh;
-     */
+    /* height: 30vh; */
      height: auto;
+     /* height: 300px; */
      max-width: 100%;
     position: relative;
 }
