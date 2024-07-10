@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
+    <div class="contain">
+        <div class="meo">
+            tôi là mèo
+        </div>
+        <div id="tho">
+            tôi là thỏ
+        </div>
+        <h1>a</h1>
+        <h1>b</h1>
+        <h1>c</h1>
+        <input type="text" id="hoten" >
+        <button type="button" id="btn1" onclick="thaydoi()"> thay doi</button>
+        <button type="button" id="btn2" onclick="doiMau()">doi mau bg</button>
+    </div>
     <script>
         var a = 10;
         var b = 20;
         var c = a + b;
-        var d= '20'
+        var d = '20'
         console.log(c);
         console.log(a + d);
         console.log(a - d);
@@ -22,7 +38,200 @@
         console.log(d + a + b);
         console.log(d + a + b + d);
         console.log(a + b + d + a);
-        console.log(a + b + d + a + b);       
+        console.log(a + b + d + a + b);
+
+        var e = 'meo`';
+        var f = "meo'";
+        console.log(e + f);
+
+        var thang = '2';
+        if (thang == 2) {
+            console.log('Thang ' + thang + ' co 28 hoac 29 ngay');
+        }
+        else if (thang == 1 || thang == 3 || thang == 5 || thang == 7 || thang == 8 || thang == 10 || thang == 12) {
+            console.log('Thang' + thang + ' co 31 ngay');
+        }
+        else if (thang == 4 || thang == 6 || thang == 9 || thang == 11) {
+            console.log('Thang' + thang + ' co 30 ngay');
+        }
+        else {
+            console.log('Thang khong hop le');
+        }
+        console.log('---------------------');
+        console.log(b === d)
+
+
+        let arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        console.log(arr2);
+        console.log(arr2[0]);
+        console.log(arr2.push(11));
+        console.log(arr2);
+        console.log(arr2.pop());
+        console.log(arr2);
+        console.log(arr2.shift());
+        console.log(arr2);
+        console.log(arr2.unshift(1));
+        console.log(arr2);
+        console.log(arr2.length);
+        console.log(arr2.indexOf(5));
+        console.log(arr2.splice(arr2.indexOf(5), 1));
+
+        console.log(arr2);
+        console.log(arr2.findIndex(function (item) {
+            return item == 111;
+        }));
+        let obj1 = {
+            name: 'Nguyen Van A',
+            age: 20,
+            address: 'Ha Noi',
+            phone: '0123456789'
+        };
+        let obj2 = {
+            name: 'Nguyen Van A',
+            age: '20',
+            address: 'Ha Noi',
+            phone: '0123456789'
+        };
+        console.log(obj1.name == obj2.name);
+        console.log(obj1 == obj2);
+        console.log(obj1 === obj2);
+        console.log(obj1.age == obj2.age);
+        console.log(obj1.age === obj2.age);
+        console.log(a)
+        console.log('---------------------');
+        console.log('---------------------');
+        //s7 = 1!+2!+3!...+n!
+        let n = 3;
+        function factorial(x) {
+            if (x === 0) {
+                return 1;
+            }
+            return x * factorial(x - 1);
+        }
+        function s7(n) {
+            let s7 = 0;
+            for (let i = 1; i <= n; i++) {
+                s7 += factorial(i);
+            }
+            return s7;
+        }
+        console.log(s7(n));
+
+        console.log('---------------------');
+        console.log('---------------------');
+        //s8 = 1+1/2!+1/3!+...+1/n!
+        let x = 4;
+        function s8(x) {
+            let s8 = 0;
+            for (let i = 1; i <= x; i++) {
+                s8 += 1 / factorial(i);
+            }
+            return s8;
+        }
+        console.log(s8(x));
+        console.log('---------------------');
+        console.log('---------------------');
+        //s9= sqrt(1+sqrt(2+sqrt(3+...+sqrt(n))))
+        let m = 3;
+        function s9(m) {
+            let s9 = Math.sqrt(m);
+            for (let i = m - 1; i >= 1; i--) {
+                s9 = Math.sqrt(i + s9);
+            }
+            return s9;
+        }
+        console.log(s9(4));
+        console.log('---------------------');
+        console.log('---------------------');
+        let sum3 = (a, b) => a + b;
+        let sum4 = (a, b) => {
+            return a + b;
+        }
+        console.log(`sum3 = ${sum3(3, 4)} sum4 = ${sum4(3, 4)}`);
+        console.log('---------------------');
+        console.log('---------------------');
+        // ramdom in list 32 number
+        var p = [];
+        for (let i = 1; i <= 32; i++) {
+           p.push(i);
+        }
+        var ramdom=0;
+        do {
+             ramdom = p[Math.floor(Math.random() * p.length)];
+        } while (ramdom == 9);
+
+        console.log('ramdom = ' + ramdom);
+
+        //random number from 1 to 32
+        console.log(Math.floor(Math.random() * 32) + 1);
+        console.log('---------------------');
+        console.log('---------------------');
+        //prototype
+        function Person(name, age, address) {
+            this.name = name;
+            this.age = age;
+            this.address = address;
+        }
+        Person.prototype.phone = '0123456789';
+        let person1 = new Person('Nguyen Van A', 20, 'Ha Noi');
+        let person2 = new Person('Nguyen Van B', 21, 'Ha Noi');
+        console.log(person1);
+        console.log(person2.phone);
+
+        function cat(firstName, lastName, age, address) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.address = address;
+        }
+        cat.prototype.name = function () {
+            return this.firstName + ' ' + this.lastName;
+        }
+        let cat1 = new cat('Nguyen', 'Van A', 20, 'Ha Noi');
+        console.log(cat1.name());
+        console.log(cat1);
+        console.log('---------------------');
+        console.log('---------------------');
+        //dom manipulation
+        let div = document.createElement('div');
+        div.innerHTML = 'Hello World';
+        document.body.appendChild(div);
+        let p1 = document.createElement('p');
+        p1.innerHTML = 'Hello World';
+        document.body.appendChild(p1);
+        
+        let meo = document.getElementsByClassName('meo');// class tra ve 1 mang
+        console.log(meo);
+        console.log(meo[0]);
+        let tho = document.getElementById('tho'); //id tra ve 1 phan tu
+        console.log(tho);
+        let h1 = document.getElementsByTagName('h1'); //tag tra ve 1 mang
+        console.log(h1);
+        console.log(h1[0]);
+        console.log(h1[1]);
+
+        let contain= document.getElementsByClassName('contain');
+        let thaydoi=()=>{
+            
+        h1[0].innerHTML = 'H1 da thay doi';
+        h1[1].innerHTML = 'H1 da thay doi';
+        let hoten= document.getElementById('hoten');
+        hoten.value = 'Nguyen Van B'; // input thay doi bang value
+        }
+        let doiMau=()=>{
+         contain[0].style.background = 'red';
+        }
+        let btn1 = document.getElementById('btn1');
+        let btn2 = document.getElementById('btn2');
+        btn1.addEventListener('click',thaydoi);
+        
+
+
+        
+        //es6 arraylist dom reactjs 
     </script>
+    
 </body>
+
 </html>
