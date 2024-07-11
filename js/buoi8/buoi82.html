@@ -10,7 +10,7 @@
            height: 50px;
            width: 50px;
               border-radius: 50%;
-              transition: 2s;
+              transition: 1.5s;
         }
         .contain {
             display: flex;
@@ -27,11 +27,11 @@
 
 <body>
   <div class="contain">
-    <button type="button" id="btn1">
+    <button type="button" id="btn1"title="red">
         <p>red</p>
     </button>
-    <button type="button" id="btn2"><div class="color">green</div></button>
-    <button type="button" id="btn3">mau vang</button>
+    <button type="button" id="btn2"title="green"><div class="color">green</div></button>
+    <button type="button" id="btn3"title="yellow">mau vang</button>
     <button type="button" id="btn4" title="white">mau trang</button>
   </div>
     <script>
@@ -51,28 +51,23 @@
             document.body.style.backgroundColor = color;
         }
 
-        btn1.addEventListener('click', () => {
-            doiMau(colorBtn1);
-            // btn1.style.transform = 'translateY(-50px)';
-        });
+        // btn1.addEventListener('click', () => {
+        //     doiMau(colorBtn1);
+        //     // btn1.style.transform = 'translateY(-50px)';
+        // });
 
-        btn2.addEventListener('click', () => {
-            doiMau(colorBtn2);
-        });
+        // btn2.addEventListener('click', () => {
+        //     doiMau(colorBtn2);
+        // });
 
-        btn3.addEventListener('click', () => {
-            doiMau('yellow');
-        });
+        // btn3.addEventListener('click', () => {
+        //     doiMau('yellow');
+        // });
 
-        btn4.addEventListener('click', () => {
-            doiMau(colorBtn4);
-        });
-        btn1.addEventListener(
-          'mouseover',
-          () => {
-            // btn1.style.transform = 'translateY(-50px)';
-          }
-        )
+        // btn4.addEventListener('click', () => {
+        //     doiMau(colorBtn4);
+        // });
+      
         var btn=[  btn1, btn2, btn3, btn4]
         console.log(btn);
        btn.forEach((btn) => {
@@ -84,7 +79,13 @@
         btn.forEach((btn) => {
           btn.addEventListener('mouseout',
           () => {
-            btn.style.transform = 'translateY(50px)';
+            btn.style.transform = 'translateY(0px)';
+          });
+        });
+        btn.forEach((btn) => {
+          btn.addEventListener('click',
+          () => {
+            doiMau(btn.title);
           });
         });
        
