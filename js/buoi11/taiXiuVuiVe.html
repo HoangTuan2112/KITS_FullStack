@@ -135,7 +135,8 @@
             <label for="xiu">Xỉu</label>
             <input type="radio" name="taiXiu" id="xiu" /><br>
             <input type="text" placeholder="chọn số coin" id="mucCuoc"></input>
-            <input type="submit" value="cược" id="cuoc"> </input><br>
+            <input type="submit" value="cược" id="cuoc" style="display: none;"> </input>
+            <br>
             <span id="winOrLose" ></span>
           </div>
         </div>
@@ -199,6 +200,9 @@
         } else {
           document.querySelector(".ketQua p").innerText = point + " Xỉu";
         }
+        if (mucCuoc.value > coin) {
+                alert("số coin bạn cược lớn hơn số coin bạn có");
+            }
         chon.forEach(function (item, index) {
             if (item.checked) {
                 if (point > 10 && point < 18) {
@@ -255,13 +259,11 @@
       let cuoc = document.querySelector("input[type='submit']");
       let  mucCuoc = document.querySelector("#mucCuoc");
         cuoc.addEventListener("click", function () {
-            if (mucCuoc.value > coin) {
-                alert("số coin bạn cược lớn hơn số coin bạn có");
-            }
-            else{
-                coin -= parseInt(mucCuoc.value);
-                yourCoin.innerText = "Số tiền của bạn: " + coin + " coin";
-            }
+           
+            // else{
+            //     coin -= parseInt(mucCuoc.value);
+            //     yourCoin.innerText = "Số tiền của bạn: " + coin + " coin";
+            // }
            });
         
         let coin =1000;
