@@ -417,6 +417,20 @@
 
     </div>
     <script>
+        // moi lac 3 xuc xac xong doi 30s cho dat cuoc mo ra co 10s xem ket qua
+        // co so diem de dat cuoc cua minh
+        // chon tai hay xiu
+        // chon muc cuoc
+        // cuoc
+        // thong bao dang cuoc bao nhieu
+        // muc cuoc thap hon so diem hien tai thi them nut them diem
+        // neu thang thi nhan gap doi so diem da cuoc
+        // neu thua thi mat het so diem da cuoc
+
+
+
+
+
         // $$("body").on("click", ".dice", function () {
         //     var roll = Math.floor(Math.random() * 6 + 1);
         //     $(this).attr("class", "dice");
@@ -438,7 +452,7 @@
         let point = 0;
 
         dice.addEventListener('click', function () {
-            
+
             let roll = Math.floor(Math.random() * 6 + 1);
             dice.className = 'dice';
             setTimeout(function () {
@@ -472,14 +486,14 @@
         console.log(money.value);
         console.log(mucCuoc.value);
         let status = document.getElementById('status');
-        let tongCuoc=0;
+        let tongCuoc = 0;
         cuoc.addEventListener('click', function () {
             if (mucCuoc.value > money.value) {
                 status.textContent = 'Cược thất bại do Không đủ tiền';
             } else {
                 money.value -= mucCuoc.value;
-                tongCuoc+=mucCuoc.value*1;
-                status.textContent = 'Cược thành công  ' +tongCuoc;
+                tongCuoc += mucCuoc.value * 1;
+                status.textContent = 'Cược thành công  ' + tongCuoc;
                 dice.style.pointerEvents = 'auto';
                 // console.log(status.textContent);
             }
