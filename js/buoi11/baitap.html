@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: ghostwhite;
+            margin: 10px;
+            display: inline-block;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button" class="btn">Random</button><br>
+
+    <script>
+        var btn = document.querySelector('.btn');
+        var div1 = document.createElement('div');
+
+        var div2 = document.createElement('div');
+        var div3 = document.createElement('div');
+        var ketQua = document.createElement('div');
+
+
+
+        btn.addEventListener('click', function () {
+            div1.innerHTML = '';
+            div2.innerHTML = '';
+            div3.innerHTML = '';
+            var divs = [div1, div2, div3];
+            divs.forEach(function (div) {
+                div.classList.add('box');
+            });
+            div1.innerHTML = Math.floor(Math.random() * 9 + 1);
+            div2.innerHTML = Math.floor(Math.random() * 9 + 1);
+            div3.innerHTML = Math.floor(Math.random() * 9 + 1);
+            document.body.appendChild(div1);
+            document.body.appendChild(div2);
+            document.body.appendChild(div3);
+            let sum = div1.textContent * 1 + div2.textContent * 1 + div3.textContent * 1;
+            console.log('Tổng = ', sum);
+            document.body.appendChild(ketQua);
+            ketQua.innerHTML = 'Tổng = ' + sum;
+            // console.log(div1);
+
+        });
+    </script>
+</body>
+
+</html>

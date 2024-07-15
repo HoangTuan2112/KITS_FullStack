@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            position: relative;
+            height: 200px;
+            width: 200px;
+            margin: 60px auto !important;
+            padding: 0 !important;
+            perspective: 1000px;
+            -webkit-perspective: 1000px;
+        }
+
+        .dice {
+            cursor: pointer;
+            position: absolute;
+            transform-style: preserve-3d;
+            height: 100%;
+            width: 100%;
+            transform: translateZ(-100px) rotateX(-10deg) rotateY(-10deg);
+            -webkit-transform: translateZ(-100px) rotateX(-10deg) rotateY(-10deg);
+            pointer-events: none;
+        }
+
+        .dice>div {
+            height: 200px;
+            width: 200px;
+            position: absolute;
+            background: #fff;
+            outline: 2px solid #303030;
+        }
+
+        .dice>div>span {
+            position: absolute;
+            background: #000;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            -webkit-transform: translate3d(-50%, -50%, 0);
+            backface-visibility: hidden;
+        }
+
+        .one {
+            transform: rotateY(0deg) translateZ(100px);
+            -webkit-transform: rotateY(0deg) translateZ(100px);
+        }
+
+        .two {
+            transform: rotateX(180deg) translateZ(100px);
+            -webkit-transform: rotateX(180deg) translateZ(100px);
+        }
+
+        .three {
+            transform: rotateY(90deg) translateZ(100px);
+            -webkit-transform: rotateY(90deg) translateZ(100px);
+        }
+
+        .four {
+            transform: rotateY(-90deg) translateZ(100px);
+            -webkit-transform: rotateY(-90deg) translateZ(100px);
+        }
+
+        .five {
+            transform: rotateX(90deg) translateZ(100px);
+            -webkit-transform: rotateX(90deg) translateZ(100px);
+        }
+
+        .six {
+            transform: rotateX(-90deg) translateZ(100px);
+            -webkit-transform: rotateX(-90deg) translateZ(100px);
+        }
+
+        .one span {
+            top: 50%;
+            left: 50%;
+        }
+
+        .two span:nth-child(1) {
+            top: 40%;
+            left: 40%;
+        }
+
+        .two span:nth-child(2) {
+            top: 60%;
+            left: 60%;
+        }
+
+        .three span:nth-child(1) {
+            top: 35%;
+            left: 35%;
+        }
+
+        .three span:nth-child(2) {
+            top: 50%;
+            left: 50%;
+        }
+
+        .three span:nth-child(3) {
+            top: 65%;
+            left: 65%;
+        }
+
+        .four span:nth-child(1) {
+            top: 35%;
+            left: 35%;
+        }
+
+        .four span:nth-child(2) {
+            top: 35%;
+            left: 65%;
+        }
+
+        .four span:nth-child(3) {
+            top: 65%;
+            left: 35%;
+        }
+
+        .four span:nth-child(4) {
+            top: 65%;
+            left: 65%;
+        }
+
+        .five span:nth-child(1) {
+            top: 35%;
+            left: 35%;
+        }
+
+        .five span:nth-child(2) {
+            top: 35%;
+            left: 65%;
+        }
+
+        .five span:nth-child(3) {
+            top: 65%;
+            left: 35%;
+        }
+
+        .five span:nth-child(4) {
+            top: 65%;
+            left: 65%;
+        }
+
+        .five span:nth-child(5) {
+            top: 50%;
+            left: 50%;
+        }
+
+        .six span:nth-child(1) {
+            top: 30%;
+            left: 35%;
+        }
+
+        .six span:nth-child(2) {
+            top: 50%;
+            left: 35%;
+        }
+
+        .six span:nth-child(3) {
+            top: 70%;
+            left: 35%;
+        }
+
+        .six span:nth-child(4) {
+            top: 30%;
+            left: 65%;
+        }
+
+        .six span:nth-child(5) {
+            top: 50%;
+            left: 65%;
+        }
+
+        .six span:nth-child(6) {
+            top: 70%;
+            left: 65%;
+        }
+
+        .dice.roll-1 {
+            animation: roll-one 2s 1 linear forwards;
+            -webkit-animation: roll-one 2s 1 linear forwards;
+        }
+
+        .dice.roll-2 {
+            animation: roll-two 2s 1 linear forwards;
+            -webkit-animation: roll-two 2s 1 linear forwards;
+        }
+
+        .dice.roll-3 {
+            animation: roll-three 2s 1 linear forwards;
+            -webkit-animation: roll-three 2s 1 linear forwards;
+        }
+
+        .dice.roll-4 {
+            animation: roll-four 2s 1 linear forwards;
+            -webkit-animation: roll-four 2s 1 linear forwards;
+        }
+
+        .dice.roll-5 {
+            animation: roll-five 2s 1 linear forwards;
+            -webkit-animation: roll-five 2s 1 linear forwards;
+        }
+
+        .dice.roll-6 {
+            animation: roll-six 2s 1 linear forwards;
+            -webkit-animation: roll-six 2s 1 linear forwards;
+        }
+
+        @keyframes roll-one {
+            0% {
+                transform: translateZ(-100px) rotateX(-10deg) rotateY(-10deg);
+            }
+
+            100% {
+                transform: translateZ(-100px) rotateX(-190deg) rotateY(-530deg);
+            }
+        }
+
+        @keyframes roll-two {
+            0% {
+                transform: translateZ(-100px) rotateX(-10deg) rotateY(-10deg);
+            }
+
+            100% {
+                transform: translateZ(-100px) rotateX(-370deg) rotateY(-550deg);
+            }
+        }
+
+        @keyframes roll-three {
+            0% {
+                transform: translateZ(-100px) rotateX(-10deg) rotateY(-10deg);
+            }
+
+            100% {
+                transform: translateZ(-100px) rotateX(-370deg) rotateY(-460deg);
+            }
+        }
+
+        @keyframes roll-four {
+            0% {
+                transform: translateZ(-100px) rotateX(-10deg) rotateY(-10deg);
+            }
+
+            100% {
+                transform: translateZ(-100px) rotateX(-370deg) rotateY(-640deg);
+            }
+        }
+
+        @keyframes roll-five {
+            0% {
+                -webkit-transform: translateZ(-100px) rotateX(-10deg) rotateY(-10deg) rotateZ(0deg);
+            }
+
+            100% {
+                -webkit-transform: translateZ(-100px) rotateX(-460deg) rotateY(-360deg) rotateZ(-10deg);
+            }
+        }
+
+        @keyframes roll-six {
+            0% {
+                -webkit-transform: translateZ(-100px) rotateX(-10deg) rotateY(-10deg) rotateZ(0deg);
+            }
+
+            100% {
+                -webkit-transform: translateZ(-100px) rotateX(-460deg) rotateY(0deg) rotateZ(-190deg);
+            }
+        }
+
+        @-webkit-keyframes roll-one {
+            0% {
+                -webkit-transform: translateZ(-100px) rotateX(-10deg) rotateY(-10deg);
+            }
+
+            100% {
+                -webkit-transform: translateZ(-100px) rotateX(-190deg) rotateY(-530deg);
+            }
+        }
+
+        @-webkit-keyframes roll-two {
+            0% {
+                -webkit-transform: translateZ(-100px) rotateX(-10deg) rotateY(-10deg);
+            }
+
+            100% {
+                -webkit-transform: translateZ(-100px) rotateX(-370deg) rotateY(-550deg);
+            }
+        }
+
+        @-webkit-keyframes roll-three {
+            0% {
+                -webkit-transform: translateZ(-100px) rotateX(-10deg) rotateY(-10deg);
+            }
+
+            100% {
+                -webkit-transform: translateZ(-100px) rotateX(-370deg) rotateY(-460deg);
+            }
+        }
+
+        @-webkit-keyframes roll-four {
+            0% {
+                -webkit-transform: translateZ(-100px) rotateX(-10deg) rotateY(-10deg);
+            }
+
+            100% {
+                -webkit-transform: translateZ(-100px) rotateX(-370deg) rotateY(-640deg);
+            }
+        }
+
+        @-webkit-keyframes roll-five {
+            0% {
+                -webkit-transform: translateZ(-100px) rotateX(-10deg) rotateY(-10deg) rotateZ(0deg);
+            }
+
+            100% {
+                -webkit-transform: translateZ(-100px) rotateX(-460deg) rotateY(-360deg) rotateZ(-10deg);
+            }
+        }
+
+        @-webkit-keyframes roll-six {
+            0% {
+                -webkit-transform: translateZ(-100px) rotateX(-10deg) rotateY(-10deg) rotateZ(0deg);
+            }
+
+            100% {
+                -webkit-transform: translateZ(-100px) rotateX(-460deg) rotateY(0deg) rotateZ(-190deg);
+            }
+        }
+
+        .playZone {
+            position: absolute;
+            top: 180%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #taixiu {}
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>Click the dice to roll it!</p>
+    </div>
+
+    <div class="container">
+        <div class="dice">
+            <div class="one">
+                <span></span>
+            </div>
+            <div class="two">
+                <span></span>
+                <span></span>
+            </div>
+            <div class="three">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="four">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="five">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="six">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="playZone">
+            <span id="ketQua"></span><br>
+            <span>Your money</span><br>
+            <input type="number" id="money" value="1000" readonly>
+
+
+            <span id="money"></span><br>
+            <span>Tai hay Xiu</span>
+            <br>
+            <label for="Tai">Tai</label>
+            <input type="radio" name="taixiu" id="Tai">
+            <label for="Xiu">Xiu</label>
+            <input type="radio" name="taixiu" id="Xiu">
+            <br>
+            <label for="">Chon muc cuoc</label>
+            <select name="mucCuoc" id="mucCuoc" title="a">
+                <option value="100">100</option>
+                <option value="200">200</option>
+                <option value="300">300</option>
+                <option value="400">400</option>
+                <option value="500">500</option>
+            </select>
+            <button id="cuoc">Cuoc</button><br>
+            <span id="status"></span>
+            <p id="winOrLose"></p>
+
+
+
+
+        </div>
+
+
+    </div>
+    <script>
+        // $$("body").on("click", ".dice", function () {
+        //     var roll = Math.floor(Math.random() * 6 + 1);
+        //     $(this).attr("class", "dice");
+        //     setTimeout(function () {
+        //         $(".dice").addClass("roll-" + roll);
+        //     }, 1);
+        // });
+
+        let dice = document.querySelector('.dice');
+        // dice.addEventListener('click', function () {
+        //     let roll = Math.floor(Math.random() * 6 + 1);
+        //     dice.className = 'dice';
+        //     setTimeout(function () {
+        //         dice.classList.add('roll-' + roll);
+        //     }, 1);
+        //     console.log(roll);
+        // });
+        let round = 0;
+        let point = 0;
+
+        dice.addEventListener('click', function () {
+            
+            let roll = Math.floor(Math.random() * 6 + 1);
+            dice.className = 'dice';
+            setTimeout(function () {
+                dice.classList.add('roll-' + roll);
+
+                // round++;
+                // point += roll;
+            }, 1);
+
+            round++;
+            point += roll;
+            console.log(point);
+            setTimeout(function () {
+                if (round % 3 == 0) {
+                    let ketQua = document.getElementById('ketQua');
+                    if (point > 10) {
+                        ketQua.textContent = point + ' Tài';
+                        point = 0;
+                    } else {
+                        ketQua.textContent = point + ' Xỉu';
+                        point = 0;
+                    }
+
+                }
+            }, 2000);
+        });
+
+        money = document.getElementById('money');
+        cuoc = document.getElementById('cuoc');
+        mucCuoc = document.getElementById('mucCuoc');
+        console.log(money.value);
+        console.log(mucCuoc.value);
+        let status = document.getElementById('status');
+        let tongCuoc=0;
+        cuoc.addEventListener('click', function () {
+            if (mucCuoc.value > money.value) {
+                status.textContent = 'Cược thất bại do Không đủ tiền';
+            } else {
+                money.value -= mucCuoc.value;
+                tongCuoc+=mucCuoc.value*1;
+                status.textContent = 'Cược thành công  ' +tongCuoc;
+                dice.style.pointerEvents = 'auto';
+                // console.log(status.textContent);
+            }
+        });
+        // if(point>10&&){
+
+        // }
+        let radio = document.querySelectorAll('input[type="radio"]');
+        console.log(radio);
+
+
+
+    </script>
+</body>
+
+</html>
