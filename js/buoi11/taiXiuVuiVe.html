@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 1471 247 */
+      .xucXac {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        position: relative;
+      }
+      .mat1 {
+        width: 232px;
+        height: 238px;
+
+        background-image: url("./img/dice.png");
+        background-position: 1471px 247px;
+        display: none;
+        margin-right: 20px;
+      }
+      /* 1226 250 */
+      .mat2 {
+        width: 232px;
+        height: 238px;
+
+        background-image: url("./img/dice.png");
+        background-position: 1226px 250px;
+        display: none;
+        margin-right: 20px;
+      }
+
+      /* 984 248 */
+      .mat3 {
+        width: 232px;
+        height: 238px;
+
+        background-image: url("./img/dice.png");
+        background-position: 984px 248px;
+        display: none;
+        margin-right: 20px;
+      }
+      /* 737 246 */
+      .mat4 {
+        width: 232px;
+        height: 238px;
+
+        background-image: url("./img/dice.png");
+        background-position: 737px 246px;
+        display: none;
+        margin-right: 20px;
+      }
+      /* 497 249 */
+      .mat5 {
+        width: 232px;
+        height: 238px;
+
+        background-image: url("./img/dice.png");
+        background-position: 497px 249px;
+        display: none;
+        margin-right: 20px;
+      }
+      /* 253 247 */
+      .mat6 {
+        width: 232px;
+        height: 238px;
+
+        background-image: url("./img/dice.png");
+        background-position: 253px 247px;
+        display: none;
+        margin-right: 20px;
+      }
+      .active {
+        display: block;
+      }
+      .o {
+        width: 232px;
+        height: 238px;
+        background-image: url("./img/dice.png");
+        /* background-position: 0px 0px; */
+        display: none;
+        margin-right: 20px;
+      }
+      .xucXac {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        position: relative;
+      }
+      .xucXac .che {
+        position: absolute;
+        width: 900px;
+        height: 500px;
+        background-color: yellow;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .ketQua {
+        width: 300px;
+        position: absolute;
+        transform: translate(0%, 300px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .chon .cuoc{
+       margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contain">
+      <div class="xucXac">
+        <div class="o"></div>
+        <div class="o"></div>
+        <div class="o"></div>
+        <div class="che">
+          <button class="open">Mở</button>
+        </div>
+        <div class="ketQua">
+          <p></p>
+          <button class="refresh" style="display: none">chơi lại</button>
+          <span id="yourCoin"></span>
+          <p>Đặt cửa</p>
+          <div class="chon">
+            
+            <label for="tai">Tài</label>
+            <input type="radio" name="taiXiu" id="tai"  />
+            <label for="xiu">Xỉu</label>
+            <input type="radio" name="taiXiu" id="xiu" /><br>
+            <input type="text" placeholder="chọn số coin" id="mucCuoc"></input>
+            <input type="submit" value="cược" id="cuoc"> </input><br>
+            <span id="winOrLose" ></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      //   let xucXac = document.querySelectorAll(".xucXac div");
+      let xucXac = document.querySelectorAll(".o");
+      let random = () => {
+        return [
+          Math.floor(Math.random() * 6 + 1),
+          Math.floor(Math.random() * 6 + 1),
+          Math.floor(Math.random() * 6 + 1),
+        ];
+      };
+      let arr1 = [
+        "1471px 247px",
+        "1226px 250px",
+        "984px 248px",
+        "737px 246px",
+        "497px 249px",
+        "253px 247px",
+      ];
+
+      let arr =random();
+
+      console.log(xucXac[1].title);
+
+      let o = document.querySelectorAll(".o");
+
+      //   xucXac.forEach(function (item, index) {
+
+      //     if (arr.includes(parseInt(item.title))) {
+      //       item.classList.add("active");
+
+      //     }
+      //   });
+      /* background-position: 497px 249px; */
+      xucXac.forEach(function (item, index) {
+        item.style.backgroundPosition = arr1[arr[index] - 1];
+        item.classList.add(arr[index]);
+        item.style.display = "block";
+      });
+      let point = 0;
+      arr.forEach(function (item, index) {
+        point += item;
+      });
+      let che = document.querySelector(".che");
+      let button = document.querySelector(".open");
+      let f5 = document.querySelector(".refresh");
+      button.addEventListener("click", function () {
+        // winOrLose.style.display = "block";
+        ketQua = document.querySelector(".ketQua p");
+        ketQua.style.display = "flex";
+        //  arr = random();
+        che.style.display = "none";
+        f5.style.display = "block";
+        if (point > 10 && point < 18) {
+          document.querySelector(".ketQua p").innerText = point + " Tài";
+        } else {
+          document.querySelector(".ketQua p").innerText = point + " Xỉu";
+        }
+        chon.forEach(function (item, index) {
+            if (item.checked) {
+                if (point > 10 && point < 18) {
+                if (item.id == "tai") {
+                    span = document.querySelector("#winOrLose");
+                    coin += parseInt(mucCuoc.value) * 2;
+                    span.innerText = "Bạn đã thắng "+ mucCuoc.value * 2 + " coin";
+                    yourCoin.innerText = "Số tiền của bạn: " + coin + " coin";
+                } else {
+                    span = document.querySelector("#winOrLose");
+                    coin -= parseInt(mucCuoc.value);
+                    span.innerText = "Bạn đã thua " + mucCuoc.value + " coin";
+                    yourCoin.innerText = "Số tiền của bạn: " + coin + " coin";
+                }       
+                }
+                else{
+                    if (item.id == "xiu") {
+                        span = document.querySelector("#winOrLose");
+                        coin += parseInt(mucCuoc.value) * 2;
+                        span.innerText = "Bạn đã thắng"+ mucCuoc.value * 2 + " coin";
+                        yourCoin.innerText = "Số tiền của bạn: " + coin + " coin";
+                    } else {
+                        span = document.querySelector("#winOrLose");
+                        coin -= parseInt(mucCuoc.value);
+                        span.innerText = "Bạn đã thua " + mucCuoc.value + " coin";
+                        
+                    } 
+                }
+
+            }});
+      });
+      f5.addEventListener("click", function () {
+        // winOrLose = document.querySelector("#winOrLose");
+      
+        che.style.display = "flex";
+        f5.style.display = "none";
+        ketQua = document.querySelector(".ketQua p");
+        ketQua.style.display = "none";
+        xucXac.forEach(function (item, index) {
+          item.style.display = "none";
+        });
+        arr = random();
+        xucXac.forEach(function (item, index) {
+          item.style.backgroundPosition = arr1[arr[index] - 1];
+          item.classList.add(arr[index]);
+          item.style.display = "block";
+        });
+        point = 0;
+        arr.forEach(function (item, index) {
+          point += item;
+        });
+      });
+      let chon = document.querySelectorAll("input[type='radio']");
+      let cuoc = document.querySelector("input[type='submit']");
+      let  mucCuoc = document.querySelector("#mucCuoc");
+        cuoc.addEventListener("click", function () {
+            if (mucCuoc.value > coin) {
+                alert("số coin bạn cược lớn hơn số coin bạn có");
+            }
+            else{
+                coin -= parseInt(mucCuoc.value);
+                yourCoin.innerText = "Số tiền của bạn: " + coin + " coin";
+            }
+           });
+        
+        let coin =1000;
+        let yourCoin = document.querySelector("#yourCoin");
+        yourCoin.innerText = "Số tiền của bạn: " + coin + " coin";
+        
+      console.log(chon);
+
+    //   chon.forEach(function (item, index) {
+    //     if(item.checked=true){
+    //       console.log(item);
+    //     }
+    //   });
+      
+
+      console.log(point);
+    </script>
+  </body>
+</html>
