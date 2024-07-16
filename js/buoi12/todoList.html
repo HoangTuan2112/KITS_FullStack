@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .todoList {
+            width: 300px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .input {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        ul li{
+            
+            list-style: none;
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+           
+        }
+        .title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .remove {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            margin-left: 5px;
+        }
+        .nv{
+            cursor: pointer;
+        }
+        .nv.active {
+            text-decoration: line-through;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="todoList">
+        <div class="title">
+            <p> My To Do List</p>
+        </div>
+        <div class="input">
+            <input type="text" id="input" placeholder="Enter your task" >
+            <button id="add">Add</button>
+        </div>  
+        <div class="list">
+            <ul id="list">
+                <!-- <li>Task 1</li>
+                <li>Task 2</li>
+                <li>Task 3</li> -->
+            </ul>  
+    </div>
+    <script>
+         let tasks1 = [
+           "an ", "ngu", "hoc"
+        ];
+        let status1=[true,false,false];
+        // localStorage.setItem('tasks', JSON.stringify(tasks1));
+        // localStorage.setItem('status', JSON.stringify(status1));
+        let input = document.querySelector('input');
+        let add = document.getElementById('add');
+        let list = document.getElementById('list');
+        let tasks = JSON.parse(localStorage.getItem('tasks')) ;
+        let status = JSON.parse(localStorage.getItem('status')) ;
+        console.log(input);
+        function render() {
+            list.innerHTML = '';
+            input.value = '';
+            tasks.map((task, index) => {
+                let li = document.createElement('li');
+                li.innerHTML = `<p class="nv" data-index="${index}"">${task}</p> <button class="remove" data-index="${index}">Remove</button>`;
+                list.appendChild(li);
+            });
+            status.map((stt,index)=>{
+                if(stt){
+                    list.children[index].children[0].classList.add('active');
+                }
+            });
+           
+        }
+        add.addEventListener('click', () => {
+            let task = input.value;
+            tasks.push(task);
+            status.push(false);
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+            localStorage.setItem('status', JSON.stringify(status));
+            render();   
+        });
+        let remove = document.querySelectorAll('.remove');
+        
+        console.log(tasks);
+        list.addEventListener('click', (e) => {
+            if(e.target.classList.contains('remove')) {
+                let index = e.target.getAttribute('data-index');
+                tasks.splice(index, 1);
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+                render();
+            }
+        });
+        
+      
+        render();
+       
+        // nv.forEach((item) => {
+        //     item.addEventListener('click', () => {
+        //         item.style.textDecoration = 'line-through';
+        //     });
+        // });
+        let arr=[true,false]
+        list.addEventListener('click', (e) => {
+            if(e.target.classList.contains('nv')) {
+              status[e.target.getAttribute('data-index')]=!status[e.target.getAttribute('data-index')];
+                localStorage.setItem('status', JSON.stringify(status));
+                render();
+                
+
+            }
+        });
+    
+        input.addEventListener('keyup', (e) => {
+            if(e.keyCode === 13) {
+              add.click();
+            }
+        });
+
+        //check trung task
+
+        let check = (task) => {
+            let check = false;
+           
+            return check;
+        }
+
+        let test=[{name:'an',age:20},{name:'an',age:20},{name:'tuan', age:20}];
+        // lay ra mang name
+        let name = test.map((item) => {
+            return item.name;
+        });
+        console.log(name);
+        // lay ra mang name khong trung
+        let name1 = name.filter((item, index) => {
+            return name.indexOf(item) === index;
+        });
+        console.log(name1);
+        // lay ra mang name trung
+        let name2 = name.filter((item, index) => {
+            return name.indexOf(item) !== index;
+        });
+        console.log(name2);
+        //lay ra mang age
+        let age = test.map((item) => {
+            return item.age;
+        });
+        console.log(age);
+        // lay ra obj thu 2 tu 2 mang
+        let obj = test.map((item, index) => {
+            return {name: item.name, age: age[index]};
+        });
+        console.log(obj);
+        
+
+        
+    
+      
+    </script>
+</body>
+</html>

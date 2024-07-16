@@ -112,6 +112,27 @@
       .chon .cuoc{
        margin: 0 auto;
       }
+      
+      button{
+        padding: 10px 20px;
+        margin: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: blue;
+        color: white;
+        width: 100px;
+        height: 50px;
+      }
+      #allIn{
+        padding: 10px 20px;
+        margin: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: red;
+        color: white;
+        width: 100px;
+        height: 20px;
+      }
     </style>
   </head>
   <body>
@@ -122,6 +143,8 @@
         <div class="o"></div>
         <div class="che">
           <button class="open">Mở</button>
+          <button id="napThem">Nạp thêm</button>
+
         </div>
         <div class="ketQua">
           <p></p>
@@ -134,12 +157,16 @@
             <input type="radio" name="taiXiu" id="tai"  />
             <label for="xiu">Xỉu</label>
             <input type="radio" name="taiXiu" id="xiu" /><br>
+            <div id="allIn">ALL IN</div>
             <input type="text" placeholder="chọn số coin" id="mucCuoc"></input>
             <input type="submit" value="cược" id="cuoc" style="display: none;"> </input>
             <br>
             <span id="winOrLose" ></span>
+
           </div>
         </div>
+      </div>
+      
       </div>
     </div>
 
@@ -189,33 +216,42 @@
       let button = document.querySelector(".open");
       let f5 = document.querySelector(".refresh");
       button.addEventListener("click", function () {
-        // winOrLose.style.display = "block";
-        ketQua = document.querySelector(".ketQua p");
-        ketQua.style.display = "flex";
-        //  arr = random();
-        che.style.display = "none";
-        f5.style.display = "block";
+        coin = localStorage.getItem("coin")*1;
+        if (mucCuoc.value > coin) {
+                alert("số coin bạn cược lớn hơn số coin bạn có hãy nạp thêm đi!!!");
+                return;
+            }
+        
         if (point > 10 && point < 18) {
           document.querySelector(".ketQua p").innerText = point + " Tài";
         } else {
           document.querySelector(".ketQua p").innerText = point + " Xỉu";
         }
-        if (mucCuoc.value > coin) {
-                alert("số coin bạn cược lớn hơn số coin bạn có");
-            }
+        
+            allIn.style.display = "none";
+        // winOrLose.style.display = "block";
+        ketQua = document.querySelector(".ketQua p");
+        
+        //  arr = random();
+        che.style.display = "none";
+        f5.style.display = "block";
+        ketQua.style.display = "flex";
         chon.forEach(function (item, index) {
             if (item.checked) {
+              
                 if (point > 10 && point < 18) {
                 if (item.id == "tai") {
                     span = document.querySelector("#winOrLose");
                     coin += parseInt(mucCuoc.value) * 2;
                     span.innerText = "Bạn đã thắng "+ mucCuoc.value * 2 + " coin";
                     yourCoin.innerText = "Số tiền của bạn: " + coin + " coin";
+                    localStorage.setItem("coin", coin);
                 } else {
                     span = document.querySelector("#winOrLose");
                     coin -= parseInt(mucCuoc.value);
                     span.innerText = "Bạn đã thua " + mucCuoc.value + " coin";
                     yourCoin.innerText = "Số tiền của bạn: " + coin + " coin";
+                    localStorage.setItem("coin", coin);
                 }       
                 }
                 else{
@@ -224,10 +260,13 @@
                         coin += parseInt(mucCuoc.value) * 2;
                         span.innerText = "Bạn đã thắng"+ mucCuoc.value * 2 + " coin";
                         yourCoin.innerText = "Số tiền của bạn: " + coin + " coin";
+                        localStorage.setItem("coin", coin);
                     } else {
                         span = document.querySelector("#winOrLose");
                         coin -= parseInt(mucCuoc.value);
                         span.innerText = "Bạn đã thua " + mucCuoc.value + " coin";
+                        yourCoin.innerText = "Số tiền của bạn: " + coin + " coin";
+                        localStorage.setItem("coin", coin);
                         
                     } 
                 }
@@ -236,7 +275,8 @@
       });
       f5.addEventListener("click", function () {
         // winOrLose = document.querySelector("#winOrLose");
-      
+        coin = localStorage.getItem("coin")*1;
+        allIn.style.display = "block";
         che.style.display = "flex";
         f5.style.display = "none";
         ketQua = document.querySelector(".ketQua p");
@@ -266,7 +306,7 @@
             // }
            });
         
-        let coin =1000;
+        let coin = localStorage.getItem("coin")*1 ;
         let yourCoin = document.querySelector("#yourCoin");
         yourCoin.innerText = "Số tiền của bạn: " + coin + " coin";
         
@@ -278,8 +318,19 @@
     //     }
     //   });
       
-
+      napThem.addEventListener("click", function () {
+        coin+=mucCuoc.value*1;
+        yourCoin.innerText = "Số tiền của bạn: " + coin + " coin";
+        localStorage.setItem("coin", coin);
+      });
       console.log(point);
+      let allIn = document.querySelector("#allIn");
+      allIn.addEventListener("click", function () {
+        mucCuoc.value = coin;
+        
+      });
+      // luu coin vao local storage
+      localStorage.setItem("coin", coin);
     </script>
   </body>
 </html>
