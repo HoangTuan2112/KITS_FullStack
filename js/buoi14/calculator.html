@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Calculator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .calculator {
+            width: 300px;
+            height: 400px;
+            background-color: greenyellow;
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        .row {
+            height: calc(100% / 7);
+            margin: 10px;
+            /* background-color: aqua; */
+        }
+
+        .btns1 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .btns1 .btn {
+            width: 50px;
+            height: 100%;
+            background-color: yellow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .endRow {
+            display: flex;
+
+            height: calc(calc(100% / 7) * 2);
+        }
+
+        .endRow .column1 {
+            display: flex;
+
+            /* justify-content: space-between; */
+            flex-wrap: wrap;
+
+
+            width: 73%;
+        }
+
+        .endRow .column1 .btn {
+            flex-direction: row;
+            width: 50px;
+            height: 40px;
+            background-color: yellow;
+            display: flex;
+
+
+        }
+
+        .endRow .column1 .btn2,
+        .btn3 {
+            margin-left: 27px;
+
+        }
+
+        .endRow .column1 .btn4 {
+            margin-top: 22px;
+            width: 127px;
+        }
+
+        .endRow .column1 .btn5 {
+            margin-top: 22px;
+            margin-left: 27px;
+        }
+
+        .endRow .column2 {
+            width: 27%;
+            height: 100%;
+            /* background-color: red; */
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .endRow .column2 .btn {
+            width: 65%;
+            height: 100%;
+            background-color: yellow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .endRow .column1 .btn2,
+        .btn3,
+        .btn4,
+        .btn5,
+        .btn6 {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn {
+            cursor: pointer;
+        }
+
+        .btnC {
+            background-color: red !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cotain">
+        <div class="calculator">
+            <div class="row" style="text-align: center; ">
+                <p>ELECTRONIC CALCULATOR</p>
+            </div>
+            <div class="row">
+                <!-- chỉ hiển thị -->
+                <input type="text" readonly style="height: 100%; width: 100%;" title="result">
+
+            </div>
+            <div class="row btns1">
+                <div class="btn btnC" title="clear">C</div>
+                <div class="btn btnC" title="del">Del</div>
+                <div class="btn" title="/">/</div>
+                <div class="btn" title="*">X</div>
+            </div>
+            <div class="row btns1">
+                <div class="btn" title="7">7</div>
+                <div class="btn" title="8">8</div>
+                <div class="btn" title="9">9</div>
+                <div class="btn" title="-">-</div>
+            </div>
+            <div class="row btns1">
+                <div class="btn" title="4">4</div>
+                <div class="btn" title="5">5</div>
+                <div class="btn" title="6">6</div>
+                <div class="btn" title="+">+</div>
+            </div>
+            <div class="row endRow">
+                <div class="column1">
+                    <div class="btn btn6" title="1">1</div>
+                    <div class="btn btn2" title="2">2</div>
+                    <div class="btn btn3" title="3">3</div>
+                    <div class="btn btn4" title="0">0</div>
+                    <div class="btn btn5" title=".">.</div>
+                </div>
+                <div class="column2">
+                    <div class="btn" title="=">=</div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <script>
+
+
+        // let result = document.querySelector('input[title="result"]');
+        // let operator = ['+', '-', '*', '/', '.'];
+        // let btns = document.querySelectorAll('.btn');
+        // console.log(btns[17].title);
+        // let str = '';
+        // //check operator lien voi operator
+
+        // let check = (arr) => {
+
+        //     arr = arr.split('');
+
+
+        //     console.log(arr);
+
+        //     for(let i=0; i<arr.length;i++){
+
+        //        let j=i+1;
+        //        if(operator.includes(arr[i]) && operator.includes(arr[j])){
+        //            return true;
+        //        }
+        //     }
+        //     return false;
+
+
+        // }
+
+
+        // btns.forEach((btn, index) => {
+
+        //     btn.addEventListener('click', () => {
+        //         str=str.toString();
+        //         if (btn.title == 'clear') {
+        //             str = '';
+        //         } else if (btn.title == 'del') {
+        //             //chuyen so thanh chuoi
+        //             str = str.toString();
+        //             // str = str.slice(0, str.length - 1);
+        //             str = str.slice(0, -1);// -1 la vi tri cuoi cung
+        //         }
+        //          else if (btn.title == '=') {
+        //             // chi co operator\\ bieu thuc co operator o cuoi \\ tu 2 operator lien nhau (222++12)
+
+        //             str1=str.split('');
+
+        //             if (operator.includes(str1[str1.length-1])){
+
+        //                 str = 'Bieu thuc khong hop le';
+        //             }
+        //             else if (str == '') {
+        //                 str = '0';
+        //             }
+        //             else {
+
+        //                console.log(str);
+        //                // thuc hien bieu thuc toan hoc
+        //                 str = eval(str);
+        //                 str=str.toString();
+        //                 console.log(str);
+
+
+        //             }
+        //         } else {
+        //             str=str.toString();
+        //             str += btn.title;
+
+        //         }
+        //         result.value = str;
+        //     });
+        // });
+
+        //use jquerry
+        $(document).ready(function () {
+            let result = $('input[title="result"]');
+            let operator = ['+', '-', '*', '/', '.'];
+            let btns = $('.btn');
+            console.log($(btns[17]).attr('title'));
+            let str = '';
+
+            let check = (arr) => {
+                arr = arr.split('');
+                console.log(arr);
+
+                for (let i = 0; i < arr.length; i++) {
+                    let j = i + 1;
+                    if (operator.includes(arr[i]) && operator.includes(arr[j])) {
+                        return true;
+                    }
+                }
+                return false;
+            };
+
+            btns.each(function () {
+                $(this).on('click', function () {
+                    str = str.toString();
+                    if ($(this).attr('title') == 'clear') {
+                        str = '';
+                    } else if ($(this).attr('title') == 'del') {
+                        str = str.slice(0, -1); // -1 is the last position
+                    } else if ($(this).attr('title') == '=') {
+                        let str1 = str.split('');
+
+                        if (operator.includes(str1[str1.length - 1])) {
+                            str = 'Invalid expression';
+                        } else if (str == '') {
+                            str = '0';
+                        } else {
+                            console.log(str);
+                            
+                            str = eval(str).toFixed(3).toString();
+                            
+                        }
+                    } else {
+                        str += $(this).attr('title');
+                    }
+                    result.val(str);
+                });
+            });
+        });
+
+    </script>
+</body>
+
+</html>
