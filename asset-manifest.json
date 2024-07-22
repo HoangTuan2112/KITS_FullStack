@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/reactjs/buoi1b/static/js/main.1ca8f0c3.js",
-    "index.html": "/reactjs/buoi1b/index.html",
-    "main.1ca8f0c3.js.map": "/reactjs/buoi1b/static/js/main.1ca8f0c3.js.map"
+    "main.js": "//KITS_FullStack/reactjs/buoi1b/static/js/main.1ca8f0c3.js",
+    "index.html": "//KITS_FullStack/reactjs/buoi1b/index.html",
+    "main.1ca8f0c3.js.map": "//KITS_FullStack/reactjs/buoi1b/static/js/main.1ca8f0c3.js.map"
   },
   "entrypoints": [
     "static/js/main.1ca8f0c3.js"
