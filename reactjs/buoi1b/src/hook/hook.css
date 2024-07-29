@@ -1,9 +1,0 @@
-.hook2{
-    padding: 10px;
-    background-color: aqua;
-    font-size: 40px;
-    transition: 1s;
-}
-.hook2.active{
-    background-color: red;
-}
