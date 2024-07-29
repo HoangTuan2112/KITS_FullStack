@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="900" height="500" style="background-color: red;"></canvas>
+    <h1 id="res">Total:</h1>
+    <button id="pause">pause</button>
+    <script>
+        let bg = new Image();
+        bg.src = "img/bg.png";
+        let bird = new Image();
+        bird.src = "img/bird.png";
+        let chimney1 = new Image();
+        chimney1.src = "./img/chimney1.png";
+        let chimney2 = new Image();
+        chimney2.src = "./img/chimney2.png";
+        let score = 0;
+
+        let c = document.getElementById('canvas');
+        let ctx = c.getContext('2d');
+
+        let point_bird = {
+            x: c.width / 5,
+            y: c.height / 2
+        }
+        let arr = [];
+        arr[0] = {
+            x: c.width,
+            y: c.height - 200
+        }
+        function run() {
+            ctx.drawImage(bg, 0, 0, c.width, c.height);
+            ctx.drawImage(bird, point_bird.x, point_bird.y, 50, 50);
+
+            point_bird.y++;
+            // ctx.drawImage(chimney1,arr[0].x,0,20,190);
+            // ctx.drawImage(chimney2,arr[0].x,arr[0].y,20,300);
+            for (let i = 0; i < arr.length; i++) {
+                console.log(arr);
+                ctx.drawImage(chimney1, arr[i].x, 0, 20, 190);
+                ctx.drawImage(chimney2, arr[i].x, arr[i].y, 20, 300);
+                arr[i].x--;
+                if (arr[i].x == c.width / 2) {
+                    arr.push({
+                        x: c.width,
+                        y: c.height - 190
+                    })
+                }
+
+                if (arr[i].x == point_bird.x) {
+                    score += 10;
+                    document.getElementById('res').innerHTML = "Total: " + score;
+                }
+                // if(arr[i].y==point_bird.y){
+                //     clearInterval(ab);
+                //     alert('Game Over');
+                // }
+                // con chimeny1 toa do y=190 
+                if (arr[i].x <= point_bird.x + 50 && arr[i].x + 20 >= point_bird.x && arr[i].y <= point_bird.y + 50 && arr[i].y + 300 >= point_bird.y || point_bird.y >= c.height) {
+                    clearInterval(ab);
+                    alert('Game Over');
+                }
+                if(arr[i].x==0){
+                    arr.shift();
+                }
+
+            }
+        }
+        let a = window.addEventListener('keydown', function (e) {
+            //13 là phím enter 32 là phím space bar 
+            if (e.keyCode == 32) {
+                point_bird.y -= 50;
+            }
+        })
+        // let tho = requestAnimationFrame(run());
+      
+        let ab = setInterval(run, 20);
+        let pause = document.getElementById('pause');
+        pause.addEventListener('click', function () {
+            clearInterval(ab);
+        })
+        // run();
+    </script>
+</body>
+
+</html>

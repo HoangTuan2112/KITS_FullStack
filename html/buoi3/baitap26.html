@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+      }
+      header {
+        height: 80vh;
+        font-family: sans-serif;
+        background-image: url("./img/bg_header.jpg");
+        background-size: cover;
+        color: white;
+        padding-top: 40px;
+        text-align: center;
+      }
+
+      header .navbar {
+        background-color: #d7263d;
+        padding: 1rem;
+        display: flex;
+       
+        width: 80%;
+        height: 200px;
+        align-items: center;
+        margin: 0 auto;
+        justify-content: space-between;
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-top: 100px;
+      }
+
+      .button {
+        background-color: #d7263d;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+      }
+      img {
+        width: 500px;
+        height: 200px;
+      }
+      nav {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 50%;
+        margin-left: 40px;
+      }
+      nav a {
+        margin-right: 20px;
+        width: 100px;
+        color: white;
+        /* background-color: #000; */
+        text-decoration: none;
+        font-size: 20px;
+      }
+
+      .a1 {
+        text-align: center; 
+      }
+      .banner {
+        display: flex;
+        flex-direction: column;
+        padding:20 0px;
+        align-items: center;
+        padding:40px;
+    
+        
+      }
+   
+      span {
+        color: #d7263d;
+      }
+      .banner h1{
+        font-size: 190px;
+        margin-bottom: 40px;
+      }
+      .banner p{
+        font-size: 20px;
+        margin-bottom: 40px;
+      }
+      .banner button{
+        background-color: #d7263d;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        width: 250px;
+        height: 90px;
+        font-size: 20px;
+        text-transform: uppercase;
+      }
+ 
+      .square {
+        width: 500px;
+        height: 500px;
+        background-color: #d7263d;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+      
+      
+      }
+      .circle{
+        width: 200px;
+        height: 200px;
+        background-color: #000;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 0%;
+        right: 0%;
+      }
+      .square1 {
+        width: 500px;
+        height: 500px;
+        background-color: gre;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      
+      
+      }
+      .circle1{
+        width: 200px;
+        height: 200px;
+        background-color: #000;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 0%;
+        right: 0%;
+      }
+      nav a{
+        position: relative;
+        
+      }
+      nav a::before{
+        content:'';
+        width: 00%;
+        height: 2px;
+       background-color: white;
+        position: absolute;
+       top:130%;
+        left: 0;
+        transition: .5s;
+      }
+        nav a:hover::before{
+            color: yellow;
+       
+            width: 100%;
+        }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <img src="./img/logo.png" alt="Industrial Logo" />
+        <nav>
+        
+          <a class="a1 dropbtn" href="#">Home</a>
+          <a class="a2" href="#">About Us</a>
+          <a class="a3" href="#">Services</a>
+          <a class="a4" href="#">Projects</a>
+          <a class="a5" href="#">Blog/News</a>
+          <a class="a6" href="#">Shop</a>
+        </nav>
+      </div>
+      <div class="banner">
+        <h1>Think Big. <span> We do.</span></h1>
+        <p>Capitalise on low hanging fruit to identify a ballpark.</p>
+        <button>Our Portfolio</button>
+      </div>
+    </header>
+    <div class="square">
+        <div class="circle"></div>
+    </div>
+    <div class="square1">
+        <div class="circle"></div>
+    </div>
+    
+  </body>
+</html>

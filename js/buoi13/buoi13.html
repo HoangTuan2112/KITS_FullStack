@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        #res2 {
+            /* background-color: red; */
+            transition: 1s;
+            height: 200px;
+            width: 200px;
+        }
+
+        .img {
+            width: 232px;
+            height: 238px;
+            background-image: url("../buoi11/img/dice.png");
+            background-position: 1471px 247px;
+            transition: 1s;
+            position: relative;
+        }
+        #prev{
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+        #next{
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+        button{
+            background-color: transparent;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="res"></div>
+    <div id="res2"></div>
+    <div class="slider">
+        <div class="img">
+           
+            <button id="prev" title="prev"><i class="fa-solid fa-arrow-left"></i></button>
+            <button id="next" title="next"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+        
+    </div>
+    <script>
+        let arr1 = [
+            "1471px 247px",
+            "1226px 250px",
+            "984px 248px",
+            "737px 246px",
+            "497px 249px",
+            "253px 247px",
+        ];
+        setInterval(() => {
+            res.innerHTML = new Date().toLocaleTimeString();
+        }, 1000);
+        let count = 0;
+        let count1 = 0;
+        setTimeout(() => {
+
+
+            res2.innerHTML = "Hello ";
+        }, 2000);
+
+        setInterval(() => {
+            count1++;
+            res2.style.backgroundColor = count % 2 == 0 ? "blue" : "red";
+
+        }, 1000);
+        let prev = document.getElementById("prev");
+        let next = document.getElementById("next");
+        let img = document.querySelector(".img");
+        let handleSlide = (type) => {
+            if (type == "next") {
+                count++;
+                if (count >= arr1.length) {
+                    count = 0;
+                }
+            } else {
+                count--;
+                if (count < 0) {
+                    count = arr1.length - 1;
+                }
+            }
+            img.style.backgroundPosition = arr1[count];
+        }
+        prev.addEventListener("click", () => {
+            // clearInterval(a);
+            handleSlide("prev");
+        });
+        next.addEventListener("click", () => {
+            // clearInterval(a);
+            handleSlide("next");
+        });
+        let a=setInterval(() => {
+            handleSlide("next");
+        }, 2000);
+        img.addEventListener("mouseover", () => {
+            clearInterval(a);
+        });
+        img.addEventListener("mouseout", () => {
+            a=setInterval(() => {
+                handleSlide("next");
+            }, 1000);
+        
+        });
+        // prev.addEventListener("mouseout", () => {
+        //     a=setInterval(() => {
+        //         handleSlide("next");
+        //     }, 1000);
+        // });
+        // next.addEventListener("mouseout", () => {
+        //     a=setInterval(() => {
+        //         handleSlide("next");
+        //     }, 1000);
+        // });
+        
+    </script>
+</body>
+
+</html>

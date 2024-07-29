@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url('./img/bg.jpg');
+            background-position: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .boat {
+            height: 154px;
+            width: 336px;
+            background-image: url('./img/OIP__1_-removebg-preview.png');
+      
+            /* animation: animation 2s linear ; */
+            position: absolute;
+            top: 358px;
+            left: 0%;
+            
+        }
+
+        @keyframes animation {
+            100% {
+                left: 100%;
+            }
+        }
+        /* body::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 900px;
+            height: 600px;
+            background-image: url('./img/lion2.png');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            transform: translateY(287px) translateX(-30px);
+        
+        } */
+        body::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 900px;
+            height: 600px;
+            background-image: url('./img/hunter.png');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            transform: translateY(287px) translateX(1570px);
+        
+        }
+         
+        .dan img {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 160px;
+            left: 472%;
+            animation: dan 2s  linear ;
+        
+        }
+        @keyframes dan{
+            50%{
+                transform: translateX(-200px);
+                
+            }
+            100%{
+                transform: translateX(-9020px);
+                
+            }
+            
+
+        }
+        .lion{
+            position: absolute;
+            background-position: center;
+            background-size: cover;
+            
+            
+        }
+        .lion img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1070px;
+            height: 600px;
+            background-image: url('./img/lion2.png');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            transform: translateY(287px) translateX(-30px);
+
+        }
+        #a{
+            animation: lion  2s  ;
+            
+        }
+        @keyframes lion{
+            100%{
+                /* transform: scale(1.2); */
+                /* transform: translateX(287px); */
+                top: -500px;
+                transform: scale(0.5);
+                
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="boat">
+        <div class="dan">
+            <img src="./img/dan.png" alt="">
+        </div>
+    </div>
+    <div class="lion">
+        <img src="./img/lion2.png" alt="" id="a">
+    </div>
+    
+</body>
+
+</html>

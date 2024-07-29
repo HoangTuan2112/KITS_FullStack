@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    a {
+      text-decoration: none;
+      color: aqua;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      background-image: url("img/bg_6.jpg");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      height: 40vh;
+      flex: calc(100% / 4);
+    }
+
+    .a1,
+    .a2,
+    .a3,
+    .a4 {
+      /* background-color: black; */
+      flex: calc(100% / 4);
+      height: 70%;
+      margin-left: 20px;
+    }
+
+    .a1 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .a1 .img img {
+      width: 200px;
+      height: 100px;
+      margin-bottom: 15px;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content .content1 {
+      margin-bottom: 15px;
+    }
+
+    .a1 .icon a {
+      font-size: 20px;
+      margin: 20px;
+      color: white;
+    }
+
+    .content a {
+      margin-bottom: 15px;
+    }
+
+    .title h4 {
+      margin-bottom: 15px;
+      font-size: 50px;
+      color: white;
+    }
+
+    ul li {
+      list-style: circle;
+      margin-bottom: 15px;
+    }
+
+    .title h4::after {
+      content: "";
+      display: block;
+      width: 100px;
+      height: 2px;
+      background-color: aqua;
+      margin-top: 10px;
+    }
+
+    .a4 .content ul li p i {
+      margin-right: 10px;
+      color: aqua;
+    }
+
+    .a4 ul li {
+      list-style: none;
+      display: flex;
+    }
+
+    @media screen and (max-width: 768px) {
+      footer {
+        flex-direction: column;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+
+      .a1,
+      .a2,
+      .a3,
+      .a4 {
+        flex: 1;
+        height: 100%;
+        margin: 0;
+      }
+
+      .a1 .img img {
+        width: 150px;
+        height: 75px;
+      }
+
+      .a1 .icon a {
+        font-size: 15px;
+      }
+
+      .title h4 {
+        font-size: 30px;
+      }
+
+      .content a {
+        font-size: 15px;
+      }
+
+      .title h4::after {
+        width: 50px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .a1 .img img {
+        width: 100px;
+        height: 50px;
+      }
+
+      .a1 .icon a {
+        font-size: 10px;
+      }
+
+      .title h4 {
+        font-size: 20px;
+      }
+
+      .content a {
+        font-size: 10px;
+      }
+
+      .title h4::after {
+        width: 30px;
+      }
+    }
+
+    @media screen and (max-width: 320px) {
+      .a1 .img img {
+        width: 80px;
+        height: 40px;
+      }
+
+      .a1 .icon a {
+        font-size: 8px;
+      }
+
+      .title h4 {
+        font-size: 15px;
+      }
+
+      .content a {
+        font-size: 8px;
+      }
+
+      .title h4::after {
+        width: 20px;
+      }
+    }
+
+    main {
+      height: 60vh;
+    }
+  </style>
+</head>
+
+<body>
+  <main></main>
+  <footer>
+    <div class="a1">
+      <div class="img">
+        <img src="./img/logo_3.png" alt="logo" />
+      </div>
+      <div class="content">
+        <div class="content1">
+          <p>
+            We give value to the excellence and top class engineers, but in
+            terms of accurate service.
+          </p>
+        </div>
+        <a href="#">Read More>></a>
+        <div class="icon">
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="a2">
+      <div class="title">
+        <h4>Our Solutions</h4>
+      </div>
+      <div class="content">
+        <ul>
+          <li>
+            <p>Power And Energy</p>
+          </li>
+          <li>
+            <p>Oil and Lubricant</p>
+          </li>
+          <li>
+            <p>Material Engeenering</p>
+          </li>
+          <li>
+            <p>Machanical Engeenering</p>
+          </li>
+          <li>
+            <p>Chemical Research</p>
+          </li>
+          <li>
+            <p>Alternate Energy</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="a3">
+      <div class="title">
+        <h4>Quick Links</h4>
+      </div>
+      <div class="content">
+        <ul>
+          <li>
+            <p>About Us</p>
+          </li>
+          <li>
+            <p>News</p>
+          </li>
+          <li>
+            <p>Testimonials</p>
+          </li>
+          <li>
+            <p>Request A Quote</p>
+          </li>
+          <li>
+            <p>FAQ</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="a4">
+      <div class="title">
+        <h4>Get In Touch</h4>
+      </div>
+      <div class="content">
+        <ul>
+          <li>
+            <p><i class="fa-solid fa-location-dot"></i></p>
+            <p>
+              Lorance 542B, Tailstoi Town 5248 MT, Wordwide Country , 1052.
+            </p>
+          </li>
+          <li>
+            <p><i class="fa-solid fa-phone"></i>12312315125</p>
+          </li>
+          <li>
+            <p><i class="fa-solid fa-envelope"></i>abgag@gmail.com</p>
+          </li>
+          <li>
+            <p><i class="fa-solid fa-stopwatch"></i>Mon - Sat : 9am to 6pm</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

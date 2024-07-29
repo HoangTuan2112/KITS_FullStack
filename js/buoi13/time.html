@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .contain {
+            width: 100%;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-color: #19172e;
+        }
+
+        .contain::before {
+            content: "";
+            width: 200px;
+            height: 250px;
+            background-color: #2980b9;
+            position: absolute;
+
+            top: 10%;
+            left: 17%;
+            animation: show 2s linear infinite alternate;
+
+
+
+        }
+
+        .contain::after {
+            content: "";
+            width: 200px;
+            height: 250px;
+            background-color: yellow;
+            position: absolute;
+            top: 10%;
+            right: 17%;
+            animation: show 2s linear 1s infinite alternate;
+
+        }
+
+        @keyframes show {
+            100% {
+                transform: translateY(100%);
+            }
+
+        }
+
+        #res {
+
+            width: 50%;
+            height: 300px;
+            background-color: rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+
+            /* backdrop-filter: blur(10px); */
+
+            position: absolute;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+            /* mo mo */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contain">
+        <div id="res"></div>
+
+    </div>
+    <br>
+    <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+        Your browser does not support the HTML canvas tag.
+    </canvas>
+    <script>
+        setInterval(() => {
+            res.innerHTML = new Date().toLocaleTimeString();
+        }, 1000);
+
+
+        // var c = document.getElementById("myCanvas");
+        // var ctx = c.getContext("2d");
+        // ctx.moveTo(0, 0);
+        // ctx.lineTo(200, 100);
+        // ctx.stroke();
+
+        // var c = document.getElementById("myCanvas");
+        // var ctx = c.getContext("2d");
+        // ctx.beginPath();
+        // ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+        // ctx.stroke();
+
+        // var c = document.getElementById("myCanvas");
+        // var ctx = c.getContext("2d");
+        // ctx.font = "30px Arial";
+        // ctx.fillText("Hello World", 10, 50);
+
+        // var c= document.getElementById("myCanvas");
+        // var ctx = c.getContext("2d");
+        // var img= document.getElementById("scream");
+        // ctx.drawImage(img,10,10);
+
+
+    </script>
+</body>
+
+</html>
