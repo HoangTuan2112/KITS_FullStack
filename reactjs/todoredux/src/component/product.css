@@ -1,0 +1,4 @@
+.product-name.active{
+    text-decoration: line-through;
+    color: red;
+}
