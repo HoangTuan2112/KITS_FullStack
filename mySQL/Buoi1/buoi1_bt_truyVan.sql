@@ -145,7 +145,7 @@ LIMIT 1
 SELECT HOTEN FROM khachhang
 where MAKH IN (
 SELECT MAKH  FROM hoadon
-where YEAR(NGHD)=2006 
+where YEAR(NGHD)=2006 hoadon_ibfk_1hoadon_ibfk_1
 ORDER BY TRIGIA DESC
 ) 
 LIMIT 3
