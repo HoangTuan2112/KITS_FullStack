@@ -284,12 +284,12 @@ group by mada
 -- phẩm X' mà nhân viên có mã là 009 chưa làm.
 select *
 from congviec 
-where STT not in  ( select c.stt from phancong p  join congviec c 
+where  mada  in ( select c.mada from phancong p  join congviec c 
 on p.mada = c.mada and p.stt = c.stt 
-where ma_nvien=009 and p.mada =1 ) 
-and mada  in ( select c.mada from phancong p  join congviec c 
+where ma_nvien=009 and p.mada =1 )
+and  STT not in  ( select c.stt from phancong p  join congviec c 
 on p.mada = c.mada and p.stt = c.stt 
-where ma_nvien=009 and p.mada =1 ) 
+where ma_nvien=009 and p.mada =1 )
 -- 46. Tìm họ tên (HONV, TENLOT, TENNV) và địa chỉ (DCHI) của những
 -- nhân viên làm việc cho một đề án ở 'TP HCM' nhưng phòng ban mà họ
 -- trực thuộc lại không tọa lạc ở thành phố 'TP HCM' .
@@ -305,7 +305,7 @@ join (
         where dean.DDIEM_DA ='TP HCM'
         ) as deanHCM
 on nhanvien.manv= deanHCM.manv
-where maphg not in (select distinct  maphg from diadiem_phg where DIADIEM = 'TP HCM' )
+where maphg  not in (select distinct  maphg from diadiem_phg where DIADIEM = 'TP HCM' )
 -- 47. Tổng quát câu 16, tìm họ tên và địa chỉ của các nhân viên làm việc cho
 -- một đề án ở một thành phố nhưng phòng ban mà họ trực thuộc lại
 -- không toạ lạc ở thành phố đó.
@@ -322,3 +322,22 @@ where maphg not in (select distinct  maphg from diadiem_phg where DIADIEM = 'TP 
 -- án 'Sản phẩm X'
 -- 52. Cho biết danh sách nhân viên tham gia vào tất cả các đề án ở TP HCM
 -- 53. Cho biết phòng ban chủ trì tất cả các đề án ở TP HCM
+
+-- câu 54: cho biết họ tên nhân viên làm việc vất vả nhất
+select  CONCAT(HONV , ' ',TENLOT, ' ',TENNV) as hotennv 
+from nhanvien
+where manv in ( select ma_nvien from phancong group by ma_nvien having sum(thoigian) =  (select sum(thoigian) from phancong group by ma_nvien order by sum(thoigian) desc limit 1))
+-- câu 55: Cho biết họ tên nhân viên làm việc nhàn hạ nhất
+select  CONCAT(HONV , ' ',TENLOT, ' ',TENNV) as hotennv 
+from nhanvien
+where manv in ( select ma_nvien from phancong group by ma_nvien having sum(thoigian) =  (select sum(thoigian) from phancong group by ma_nvien order by sum(thoigian)  limit 1))
+-- Câu 56: Cho biết họ tên nhân viên làm việc đa dạng  nhiều công việc nhất
+select  CONCAT(HONV , ' ',TENLOT, ' ',TENNV) as hotennv 
+from nhanvien
+where manv in ( select ma_nvien from phancong group by ma_nvien having count(stt)>= all( select count(stt) from phancong group by ma_nvien ))
+-- câu 57: Cho biết 2 họ tên nhân viên việc nhẹ lương cao nhất
+ select  CONCAT(HONV , ' ',TENLOT, ' ',TENNV) as hotennv ,luong
+from nhanvien
+where manv in ( select ma_nvien from phancong group by ma_nvien having sum(thoigian)<= all( select sum(thoigian) from phancong group by ma_nvien ))
+order by luong desc
+limit 2 
