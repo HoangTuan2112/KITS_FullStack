@@ -31,16 +31,19 @@ public class Main {
 //        System.out.println("Chieu bao ban la "+chieuCao);
 //        scanner.close();
 //        nhapXuat();
-        nhapXuat2();
+//        nhapXuat2();
+        HinhChuNhat hcn = new HinhChuNhat(5, 3);
+        System.out.printf("Hinh chu nhat co\n chieu dai la %f \n chieu rong la %f \n chu vi la %f \n dien tich la %f \n", hcn.dai, hcn.rong, hcn.chuVi(), hcn.dienTich());
     }
 
-    public static int inputNumber(String name){
+
+    public static int inputNumber(String name) {
         Scanner scanner = new Scanner(System.in);
         boolean valid = false;
-        int value =0;
-        while(!valid){
+        int value = 0;
+        while (!valid) {
             try {
-                System.out.printf("Nhap %s cua ban \n",name);
+                System.out.printf("Nhap %s cua ban \n", name);
 
                 value = scanner.nextInt();
 
@@ -54,12 +57,11 @@ public class Main {
     }
 
 
-
-    public static void nhapXuat(){
+    public static void nhapXuat() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhap ten");
         String name = scanner.nextLine();
-        int age =0;
+        int age = 0;
         int height = 0;
         age = inputNumber("tuoi");
         height = inputNumber("chieu cao");
@@ -81,119 +83,107 @@ public class Main {
 //    Bảo Bình (Aquarius): 20/1 - 18/2
 //    Song Ngư (Pisces): 19/2 - 20/3
 
-    public static void nhapXuat2(){
+    public static void nhapXuat2() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhap ten");
         String name = scanner.nextLine();
-        int day=0;
-        int month=0;
+        int day = 0;
+        int month = 0;
         day = inputNumber("ngay sinh");
         month = inputNumber("thang");
-        if(month == 1){
-            if(day<=31&&day>=20){
-                System.out.printf("%s cung Bảo Bình",name);
-            }
-            else if(day>0&&day<=19){
-                System.out.printf("%s cung Ma Kết",name);
-            }
-        }
-        if(month == 2){
-            if(day<=28&&day>=19){
-
-                System.out.printf("%s cung Song Ngư",name);
-            }
-            else  if(day>0&&day<19){
-
-                System.out.printf("%s cung Bảo Bình",name);
+        if (month == 1) {
+            if (day <= 31 && day >= 20) {
+                System.out.printf("%s cung Bảo Bình", name);
+            } else if (day > 0 && day <= 19) {
+                System.out.printf("%s cung Ma Kết", name);
             }
         }
-        if(month == 3){
-            if(day>=21&&day<=31){
+        if (month == 2) {
+            if (day <= 28 && day >= 19) {
 
-                System.out.printf("%s cung Bạch Dương",name);
-            }
-            else  if(day>0&&day<21){
+                System.out.printf("%s cung Song Ngư", name);
+            } else if (day > 0 && day < 19) {
 
-                System.out.printf("%s cung  Song Ngư",name);
+                System.out.printf("%s cung Bảo Bình", name);
             }
         }
-        if(month == 4){
-            if(day>=20&&day<=30){
+        if (month == 3) {
+            if (day >= 21 && day <= 31) {
 
-                System.out.printf("%s cung  Kim Ngưu",name);
+                System.out.printf("%s cung Bạch Dương", name);
+            } else if (day > 0 && day < 21) {
+
+                System.out.printf("%s cung  Song Ngư", name);
             }
-            else if(day>0&&day<20)  {
+        }
+        if (month == 4) {
+            if (day >= 20 && day <= 30) {
+
+                System.out.printf("%s cung  Kim Ngưu", name);
+            } else if (day > 0 && day < 20) {
                 System.out.printf("%s cung Bạch Dương", name);
             }
         }
-        if(month == 5){
-            if(day>=21&&day<=31){
+        if (month == 5) {
+            if (day >= 21 && day <= 31) {
 
-                System.out.printf("%s cung  Song Tử",name);
-            }
-            else if(day>0&&day<21){
+                System.out.printf("%s cung  Song Tử", name);
+            } else if (day > 0 && day < 21) {
                 System.out.printf("%s cung Kim Ngưu", name);
             }
         }
-        if(month == 6){
-            if(day>=21&&day<=30){
+        if (month == 6) {
+            if (day >= 21 && day <= 30) {
 
-                System.out.printf("%s cung  Cự Giải",name);
-            }
-            else if(day>0&&day<21){
+                System.out.printf("%s cung  Cự Giải", name);
+            } else if (day > 0 && day < 21) {
                 System.out.printf("%s cung Song Tử", name);
             }
         }
-        if(month == 7){
-            if(day>=23&&day<=31){
-                System.out.printf("%s cung  Sư Tử",name);
-            }
-            else if(day>0&&day<23){
+        if (month == 7) {
+            if (day >= 23 && day <= 31) {
+                System.out.printf("%s cung  Sư Tử", name);
+            } else if (day > 0 && day < 23) {
                 System.out.printf("%s cung Cự Giải", name);
             }
         }
-        if(month == 8){
-            if(day>=23&&day<=31){
+        if (month == 8) {
+            if (day >= 23 && day <= 31) {
 
-                System.out.printf("%s cung  Xử Nữ",name);
-            }
-            else if(day>0&&day<23){
-                System.out.printf("%s cung  Sư Tử",name);
+                System.out.printf("%s cung  Xử Nữ", name);
+            } else if (day > 0 && day < 23) {
+                System.out.printf("%s cung  Sư Tử", name);
             }
         }
-        if(month == 9){
-           if(day>=23&&day<=30){
-               System.out.printf("%s cung  Thiên Bình",name);
-           }
-           else if(day>0&&day<23){
-               System.out.printf("%s cung  Xử Nữ",name);
-           }
-        }
-
-        if(month == 10){
-            if(day>=23&&day<=31){
-
-                System.out.printf("%s cung  Bọ Cạp",name);
-            }
-            else if(day>0&&day<23){
-                System.out.printf("%s cung  Thiên Bình",name);
+        if (month == 9) {
+            if (day >= 23 && day <= 30) {
+                System.out.printf("%s cung  Thiên Bình", name);
+            } else if (day > 0 && day < 23) {
+                System.out.printf("%s cung  Xử Nữ", name);
             }
         }
-        if(month == 11){
-            if(day>=22&&day<=30){
 
-                System.out.printf("%s cung Nhân Mã",name);
-            }
-            else if(day>0&&day<22){
-                System.out.printf("%s cung  Bọ Cạp",name);
+        if (month == 10) {
+            if (day >= 23 && day <= 31) {
+
+                System.out.printf("%s cung  Bọ Cạp", name);
+            } else if (day > 0 && day < 23) {
+                System.out.printf("%s cung  Thiên Bình", name);
             }
         }
-        if(month == 12){
-            if(day>=22&&day<=31){
-                System.out.printf("%s cung Ma Kết",name);
+        if (month == 11) {
+            if (day >= 22 && day <= 30) {
+
+                System.out.printf("%s cung Nhân Mã", name);
+            } else if (day > 0 && day < 22) {
+                System.out.printf("%s cung  Bọ Cạp", name);
             }
-            else if(day>0&&day<22){
-                System.out.printf("%s cung Nhân Mã",name);
+        }
+        if (month == 12) {
+            if (day >= 22 && day <= 31) {
+                System.out.printf("%s cung Ma Kết", name);
+            } else if (day > 0 && day < 22) {
+                System.out.printf("%s cung Nhân Mã", name);
             }
         }
         System.out.println("nhap sai roi");
