@@ -9,10 +9,21 @@ public class GiaDinh {
     public GiaDinh() {
          listThanhVien = new HashMap<>();
     }
-    public void themThanhVien( Role role,Nguoi nguoi){
-        listThanhVien.put(role,nguoi);
-    }
+    public boolean themThanhVien( Role role,Nguoi nguoi){
+        if(role==nguoi.getRole())
+        {
+            listThanhVien.put(role,nguoi);
 
+            return true;
+        }
+        return false;
+
+    }
+    public void xuat(){
+        for (Role role : listThanhVien.keySet()) {
+            System.out.println(listThanhVien.get(role).toString());
+        }
+    }
 
     public boolean kiemTraHuyetMach() {
         // cha me con

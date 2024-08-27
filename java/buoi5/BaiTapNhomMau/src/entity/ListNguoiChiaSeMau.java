@@ -73,10 +73,8 @@ public class ListNguoiChiaSeMau {
 
 
     }
-    public void cau3(){
-        System.out.println("nhap vi tri nguoi can kiem tra");
-        Scanner scanner = new Scanner(System.in);
-        int index = scanner.nextInt();
+    public void cau3(int index){
+
         for( int i =0 ; i<listNguoiChiaSeMau.size();i++){
             if(i!=(index-1)){
                 if(listNguoiChiaSeMau.get((index-1)).checkMauNhan(listNguoiChiaSeMau.get(i))&&listNguoiChiaSeMau.get((index-1)).checkRhNhan(listNguoiChiaSeMau.get(i))){

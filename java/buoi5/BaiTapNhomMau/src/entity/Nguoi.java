@@ -1,5 +1,6 @@
 package entity;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Nguoi {
@@ -89,6 +90,19 @@ public class Nguoi {
 
         }
         return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nhomMau, rH, role);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Nguoi)) return false;
+        Nguoi nguoi = (Nguoi) obj;
+        return nhomMau == nguoi.nhomMau && rH == nguoi.rH && role == nguoi.role;
     }
 
     @Override
